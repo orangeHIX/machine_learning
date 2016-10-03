@@ -218,3 +218,9 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+%% =========== Part 9:  =============
+%
+theta = trainLinearReg(X, y, lambda_vec(3));
+error_test = linearRegCostFunction(X, y, theta, 0);
+fprintf('test error using the best value of %f is %f\n',...
+    lambda_vec(3), error_test);
