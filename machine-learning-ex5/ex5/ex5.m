@@ -220,7 +220,13 @@ fprintf('Program paused. Press enter to continue.\n');
 pause;
 %% =========== Part 9:  =============
 %
-theta = trainLinearReg(X, y, lambda_vec(3));
-error_test = linearRegCostFunction(X, y, theta, 0);
+lambda =3;
+theta = trainLinearReg(X_poly, y, lambda);
+error_test = linearRegCostFunction(X_poly_test, ytest, theta, 0);
 fprintf('test error using the best value of %f is %f\n',...
-    lambda_vec(3), error_test);
+    lambda, error_test);
+plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
+plotFit(min(X), max(X), mu, sigma, theta, p);
+xlabel('Change in water level (x)');
+ylabel('Water flowing out of the dam (y)');
+title (sprintf('Polynomial Regression Fit (lambda = %f)', lambda));
